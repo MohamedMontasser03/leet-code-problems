@@ -11,11 +11,14 @@
  */
 
 function isPalindrome(l: ListNode | null): boolean {
+    // get mid-point of linked-list
     let midPoint = l, endPoint = l;
     while(endPoint !== null && endPoint.next !== null){
         endPoint = endPoint.next.next;
         midPoint = midPoint.next;
     }
+    
+    // reverse mid-point of linked-list
     let temp1 = midPoint, temp2 = midPoint.next;
     if(temp2 === null) return l.val === midPoint.val;
     while(temp2 !== null && temp1 !== null){
@@ -24,6 +27,8 @@ function isPalindrome(l: ListNode | null): boolean {
         midPoint.next = temp1;
         temp1 = midPoint;
     }
+    
+    // compare the two halves
     while(midPoint.next !== l && midPoint !== l){
         if(midPoint.val !== l.val)
             return false;
