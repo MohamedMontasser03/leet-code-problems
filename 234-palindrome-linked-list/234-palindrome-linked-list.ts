@@ -12,7 +12,6 @@
 
 function isPalindrome(l: ListNode | null): boolean {
     let midPoint = l, endPoint = l;
-    console.log(l);
     while(endPoint !== null && endPoint.next !== null){
         endPoint = endPoint.next.next;
         midPoint = midPoint.next;
