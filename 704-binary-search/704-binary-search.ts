@@ -1,16 +1,15 @@
 function search(nums: number[], target: number): number {
-    let l = 0, r = nums.length - 1, m = 0;
+    let l = 0, r = nums.length - 1;
     while(l<=r){
-        m = Math.trunc(r - l / 2);
-        const v = nums[m];
+        const v = nums[Math.trunc(r - l / 2)];
         if(v === target){
-            return m;
+            return Math.trunc(r - l / 2);
         }
         if(v > target){
-           r = m - 1; 
+           r = Math.trunc(r - l / 2) - 1; 
         }
         if(v < target){
-            l = m + 1;
+            l = Math.trunc(r - l / 2) + 1;
         }
     }
     return -1;
